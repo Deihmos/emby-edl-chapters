@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup><TargetFramework>netstandard2.0</TargetFramework><AssemblyVersion>1.0.0.5</AssemblyVersion><FileVersion>1.0.0.5</FileVersion></PropertyGroup>
+<ItemGroup><EmbeddedResource Include="Media/icon.png" /><EmbeddedResource Include="Pages/edl.html" /><EmbeddedResource Include="Pages/edl.js" /></ItemGroup>
+<ItemGroup><PackageReference Include="System.Memory" Version="4.5.5" /><PackageReference Include="MediaBrowser.Server.Core" Version="4.7.3" /></ItemGroup>
+<ItemGroup><Compile Remove="Tests/**/*.cs" /></ItemGroup></Project>

@@ -1,0 +1,22 @@
+<div data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-button,emby-input,emby-checkbox" data-controller="__plugin/edlchapters.js">
+<div data-role="content"><div class="content-primary">
+<h2>EDL Chapters</h2>
+<p>Import commercial breaks from adjacent .edl files into Emby. Videos stay unchanged. No chapter backups are created.</p>
+<h3>Recordings folder</h3>
+<label for="edlRoot">Server-local folder</label><input is="emby-input" id="edlRoot" type="text" value="/mnt/Medialibrary/Recorded TV" />
+<label><input id="edlAutomatic" type="checkbox" /> Enable scheduled imports</label><br />
+<p>Allows the existing Import commercial EDL chapters task to import chapters. Manage its schedule under Scheduled Tasks → EDL Chapters. The default interval is 15 minutes; enabling this option does not change existing task triggers. Click Save import settings to apply.</p>
+<br /><label><input id="edlThumbnails" type="checkbox" /> Generate chapter thumbnails after importing</label>
+<p>Starts Emby's library-wide thumbnail extraction task after new chapters are saved. Set Thumbnail images interval to Chapter markers in your recording library. Requests are grouped; previews and unchanged imports do not trigger extraction.</p>
+<p>Intro and credits markers are preserved. If one overlaps a break, that recording is skipped. Automatic import processes only recordings resolving beneath this folder.</p>
+<button is="emby-button" id="edlSave" type="button" class="raised button-submit">Save import settings</button>
+<h3>Import one recording</h3><p>Use the controls below to preview and import chapters for one recording.</p>
+<label for="edlItem">Emby item ID</label><input is="emby-input" id="edlItem" type="number"  />
+<label for="edlPath">Local recording path (optional)</label><input is="emby-input" id="edlPath" type="text" placeholder="Leave blank to use the library item's local path" />
+<p>If the library item itself has an SMB address, enter its matching local video path here. Enter the video path, not the EDL path.</p>
+<button is="emby-button" id="edlPreview" type="button" class="raised">Preview EDL</button>
+<button is="emby-button" id="edlApply" type="button" class="raised button-submit" disabled>Import these chapters</button>
+<p id="edlStatus" role="status"></p>
+<pre id="edlOutput" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+<p>After importing, stop and restart playback. A later metadata refresh can replace these chapters; enabled scheduled imports can recreate them from the EDL.</p>
+</div></div></div>
